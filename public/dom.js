@@ -11,20 +11,25 @@ const callBackEnd = (e) => {
     xhr.onreadystatechange = () => {
         if (xhr.readyState === 4 && xhr.status === 200){
 
-            // console.log("it works", xhr.responseText);//array
-
             const responseArr = JSON.parse(xhr.responseText);
-            // console.table(responseArr)
+            const directions = responseArr[0].legs;
 
-            let directions = responseArr[0].legs;
-            // console.log(directions);
+        //    list of directions in html
+         const orderedList = document.getElementById('ordered-directions');
 
-           stringDirections =  directions.join('\n');
-           console.log(stringDirections)
+            while(orderedList.getElementsByTagName('li').length > 0){                
+                orderedList.removeChild(orderedList.childNodes[0]);
+            };
 
-
-           document.getElementById('directions-container').textContent = stringDirections;
-
+           //creating a list of directions
+           directions.forEach(a => {
+               li = document.createElement('LI');
+               textnode = document.createTextNode(a);
+               li.appendChild(textnode);
+               orderedList.append(li);
+           });
+        // appends completed OL to our directions-container
+           document.getElementById('directions-container').appendChild(orderedList);
         } 
         else {
             console.error('Something is wrong');
