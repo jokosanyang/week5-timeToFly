@@ -1,5 +1,3 @@
-
-
 const handlerFA = flightno => {
     console.log('FA', flightno);
 }
