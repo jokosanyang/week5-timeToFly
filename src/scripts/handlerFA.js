@@ -1,5 +1,5 @@
 const handlerFA = flightno => {
-    console.log('FA', flightno);
+    // console.log('FA', flightno);
 }
 
 
