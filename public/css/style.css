@@ -1,0 +1,20 @@
+body {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+
+}
+
+.container {
+    align-content: center;
+}
+
+header {
+    justify-content: center;
+    flex-direction: row;
+}
+
+form {
+    border: 1px solid black;
+
+}

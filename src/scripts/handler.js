@@ -29,7 +29,7 @@ const handlerPublic = (request, response, url) => {
         '.ico': 'image/vnd.microsoft.icon'
     };
 
-    const filePath = path.join(__dirname, '../..', url);
+    const filePath = path.join(__dirname, '../..', 'public', url);
     
     fs.readFile(filePath, (error, file) => {
         if(error){
