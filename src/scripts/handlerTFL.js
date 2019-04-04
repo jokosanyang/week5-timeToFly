@@ -1,5 +1,6 @@
 const request = require('request');
 const heathrow = 'TW62GA';
+const handlerQueryAll = require('./handlerQueryAll');
 
 const handlerTFL = (req, res, postcode) => {
    
@@ -20,8 +21,8 @@ const handlerTFL = (req, res, postcode) => {
             legs: directionsArr,
             duration: duration};
 
-        res.writeHead(200, {'Content-Type': 'application/json'})    
-        res.end(JSON.stringify(objTFL)); 
+        console.log(objTFL);
+        return objTFL;
         })       
 };
 
