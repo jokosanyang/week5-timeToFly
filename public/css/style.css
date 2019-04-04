@@ -17,6 +17,14 @@ header {
 }
 
 form {
+    display: flex;
+    flex-direction: column;
     border: 1px solid black;
+    align-items: center;
+
+}
+.results__time {
+    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
 
 }
