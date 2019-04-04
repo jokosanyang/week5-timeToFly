@@ -7,16 +7,16 @@ const callBackEnd = (e) => {
     e.preventDefault();
     const xhr = new XMLHttpRequest();
     const urlStr = `query?postcode=${inputPostCode.value}&flightno=${inputFlightno.value}`;
-    console.log(urlStr);
 
     xhr.onreadystatechange = () => {
         if (xhr.readyState === 4 && xhr.status === 200){
+
             console.log("it works", xhr.responseText);
         } else {
-            console.error(xhr.responseText);
+            console.error('Something is wrong');
     }
     }
-    xhr.open('GET', urlStr,true);
+    xhr.open('GET', urlStr, true);
     xhr.send();
 }
 
