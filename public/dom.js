@@ -11,10 +11,24 @@ const callBackEnd = (e) => {
     xhr.onreadystatechange = () => {
         if (xhr.readyState === 4 && xhr.status === 200){
 
-            console.log("it works", xhr.responseText);
-        } else {
+            // console.log("it works", xhr.responseText);//array
+
+            const responseArr = JSON.parse(xhr.responseText);
+            // console.table(responseArr)
+
+            let directions = responseArr[0].legs;
+            // console.log(directions);
+
+           stringDirections =  directions.join('\n');
+           console.log(stringDirections)
+
+
+           document.getElementById('directions-container').textContent = stringDirections;
+
+        } 
+        else {
             console.error('Something is wrong');
-    }
+        }
     }
     xhr.open('GET', urlStr, true);
     xhr.send();
