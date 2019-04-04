@@ -20,14 +20,4 @@ const callBackEnd = (e) => {
     xhr.send();
 }
 
-
-
-
-
-
-
-
-
-
-
 form.addEventListener('submit', callBackEnd);

@@ -1,12 +1,13 @@
 const request = require('request');
 const heathrow = 'TW62GA';
-const handlerQueryAll = require('./handlerQueryAll');
 
 const handlerTFL = (req, res, postcode) => {
    
-    request(`https://api.tfl.gov.uk/journey/journeyresults/${postcode}/to/${heathrow}`, { json : true}, (err, response, body) => {
+    return responsePromise = new Promise((resolve, reject) => {
+        
+        request(`https://api.tfl.gov.uk/journey/journeyresults/${postcode}/to/${heathrow}`, { json : true}, (err, response, body) => {
         if (err) {
-            return console.log(err); 
+            return reject(err); 
         } 
         
         const duration = body.journeys[0].duration;
@@ -20,10 +21,10 @@ const handlerTFL = (req, res, postcode) => {
         const objTFL = {
             legs: directionsArr,
             duration: duration};
-
-        console.log(objTFL);
-        return objTFL;
-        })       
+        resolve(objTFL);
+        })
+      
+    })
 };
 
 module.exports = handlerTFL;

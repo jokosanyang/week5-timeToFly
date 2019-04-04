@@ -4,6 +4,8 @@ const handlerQueryAll = require('./handlerQueryAll');
 
 
 const handlerFA = (req, res, flightno)=> {
+   
+    return responsePromise = new Promise((resolve, reject) => {
 
     const username = 'JokoSanyang';
     const password = '776057661654d414dc8a119e561bed8bc5811ada';
@@ -13,14 +15,12 @@ const handlerFA = (req, res, flightno)=> {
 
     request(url, { json : true}, (err, response, body) => {
         if (err) {
-            return console.log(err); 
-        } 
-    console.log(body);
-            // console.log(body.FlightInfoStatusResult.flights[0]);
+            return reject(err); 
+        } console.log('FA from handlerFA:', body.FlightInfoStatusResult.flights[0]);
 
-            return body.FlightInfoStatusResult.flights[0];
+            resolve(body.FlightInfoStatusResult.flights[0].cancelled);
         })
-
+    })
 
 }
 
