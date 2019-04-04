@@ -12,11 +12,21 @@
 <body>
     <div class = "container">
         <header>Time to Fly!</header>
-        <form action="submit" id="form">
-            <input type="text" id="postcode">
-            <input type="text" id="flightno">
-            <button type="submit" id="submitbtn">Send!</button>
-        </form>
+            <main>
+                <form action="submit" id="form">
+                    <label for="postcode">from</label>
+                    <input type="text" placeholder="enter postcode" id="postcode">
+                    <select>
+                        <option value="heathrow">Heathrow</option>
+                    </select>
+                    <label for="flightno">to</label>
+                    <input type="text" placeholder="enter flight number" id="flightno">
+                    <button type="submit" id="submitbtn">FLY!</button>
+            </form>
+            </main>
+            <footer>
+
+            </footer>
     </div>
     <script src="./dom.js"></script>
 </body>

@@ -2,6 +2,7 @@ body {
     display: flex;
     justify-content: center;
     flex-direction: row;
+    padding-top: 20vh;
 
 }
 
@@ -12,6 +13,7 @@ body {
 header {
     justify-content: center;
     flex-direction: row;
+    text-align: center;
 }
 
 form {
