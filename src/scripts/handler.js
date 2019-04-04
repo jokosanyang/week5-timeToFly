@@ -17,7 +17,7 @@ const handlerHome = (request, response) => {
 };
 
 const handlerPublic = (request, response, url) => {
-    console.log(url);
+    // console.log(url);
     const extension = path.extname(url);
     const extensionType = {
         '.html': 'text/html',
