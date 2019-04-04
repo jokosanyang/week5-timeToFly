@@ -1,7 +1,10 @@
 const handler = require('./handler');
-const urlMod = require('url');
-const handlerFA = require('./handlerFA');
-const handlerTFL = require('./handlerTFL');
+// const urlMod = require('url');
+// const handlerFA = require('./handlerFA');
+// const handlerTFL = require('./handlerTFL');
+const handlerQueryAll = require('./handlerQueryAll')
+
+
 
 const routeArr = [
     "/assets/favicon.ico",
@@ -23,17 +26,7 @@ const router = (request, response) => {
 
 
     } else if(url.includes('query')){
-
-        let parsedQuery = urlMod.parse(url, true);
-        const postcode = parsedQuery.query.postcode;
-        const flightno = parsedQuery.query.flightno;
-        handlerTFL(request, response, postcode);
-        handlerFA(request, response, flightno);
-    
-        
-        
-        
-        
+        handlerQueryAll(request, response, url);
 
     } else{
         response.writeHead(404, {'Content-Type': 'text/html'});
