@@ -1,6 +1,5 @@
 const request = require('request');
 const heathrow = 'TW62GA';
-const handlerQueryAll = require('./handlerQueryAll');
 
 const handlerTFL = (req, res, postcode) => {
    
@@ -22,14 +21,10 @@ const handlerTFL = (req, res, postcode) => {
         const objTFL = {
             legs: directionsArr,
             duration: duration};
-
-        console.log('TFL from handler: ', objTFL);
         resolve(objTFL);
         })
-        
+      
     })
-
-           
 };
 
 module.exports = handlerTFL;

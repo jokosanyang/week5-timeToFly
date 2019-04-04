@@ -10,7 +10,6 @@ const handlerQueryAll = (request, response, url) => {
     const promiseTFL =  handlerTFL(request, response, postcode);
     const promiseFA = handlerFA(request, response, flightno);
 
-
     return Promise.all([
         promiseTFL,
         promiseFA
@@ -24,14 +23,6 @@ const handlerQueryAll = (request, response, url) => {
         response.end(error.message);
     })
 
-
-    console.log('TFL from query: ', objTFL);
-    console.log('FA from query: ', objFA);
-
-    // const combinedObj = {...objTFL, ...objFA};
-
-//     response.writeHead(200, {'Content-Type': 'application/json'});
-//     response.end(JSON.stringify(combinedarr));
 }
 
 module.exports = handlerQueryAll;

@@ -1,6 +1,5 @@
 const fs = require('fs');
 const path = require ('path');
-// const request = require('request')
 
 const handlerHome = (request, response) => {
     const filePath = path.join(__dirname, '../../public/index.html');
@@ -17,7 +16,6 @@ const handlerHome = (request, response) => {
 };
 
 const handlerPublic = (request, response, url) => {
-    // console.log(url);
     const extension = path.extname(url);
     const extensionType = {
         '.html': 'text/html',
