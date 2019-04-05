@@ -15,7 +15,7 @@ const handlerFA = (req, res, flightno)=> {
 
     request(url, { json : true}, (err, response, body) => {
         if (err) {
-            return reject(err); 
+       reject(err); 
         }
             resolve(body.FlightInfoStatusResult.flights[0].estimated_departure_time.localtime);
         })
