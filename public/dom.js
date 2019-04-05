@@ -15,8 +15,23 @@ const callBackEnd = (e) => {
 
             const directionsArr = response[0].legs;
             
-            const directions = ""; // insert Burhan's directions code here
+            //    list of directions in html
+            const orderedList = document.getElementById('ordered-directions');
 
+            while(orderedList.getElementsByTagName('li').length > 0){                
+                orderedList.removeChild(orderedList.childNodes[0]);
+            };
+
+           //creating a list of directions
+           directionsArr.forEach(a => {
+               li = document.createElement('LI');
+               textnode = document.createTextNode(a);
+               li.appendChild(textnode);
+               orderedList.append(li);
+           });
+        // appends completed OL to our directions-container
+           document.getElementById('directions-container').appendChild(orderedList);
+   
             const journeyInSecs = response[0].duration * 60;
             const epoch = response[1];
             
@@ -28,11 +43,9 @@ const callBackEnd = (e) => {
             document.getElementById('time-result').innerHTML = 
             "In order to be at the airport two hours early, you need to leave at: " + "<br>" + realTimeToLeave + "<br><br>"
             + "Here's how to get there: " + "<br>" + directions; 
-            
-
         } else {
             console.error('Something is wrong');
-    }
+        }
     }
     xhr.open('GET', urlStr, true);
     xhr.send();
