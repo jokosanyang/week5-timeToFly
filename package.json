@@ -18,9 +18,11 @@
     "url": "https://github.com/FAC-Sixteen/week5-timeToFly/issues"
   },
   "homepage": "https://github.com/FAC-Sixteen/week5-timeToFly#readme",
+  "dependencies": {
+    "request": "^2.88.0"
+  },
   "devDependencies": {
     "nodemon": "^1.18.10",
-    "request": "^2.88.0",
     "supertest": "^4.0.2",
     "tap-spec": "^5.0.0",
     "tape": "^4.10.1"
