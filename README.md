@@ -10,7 +10,7 @@ The app is live on Heroku. Access it using [this link](https://time-to-fly.herok
 
 ## :floppy_disk: How to run the project locally 
 
-1. git clone `git@github.com:FAC-Sixteen/week5-timeToFly.git`
+1. git clone `https://github.com/FAC-Sixteen/week5-timeToFly.git`
 2. cd into the repo
 3. run `npm i` to install node modules
 4. `npm run go` can be run to keep the server live
@@ -30,25 +30,40 @@ The app is live on Heroku. Access it using [this link](https://time-to-fly.herok
 7. Wrote all functions as a group of 3
 8. Styled the page
 
+![front-to-back-to-front-again](https://i.imgur.com/2kZVva0.jpg)
+
 ---
 
 ## 🏋️‍ What we struggled with  
 * when to use the `res.end()`
 > end() means end.
+> ![there can only be one gif![Uploading file..._mv34dhljf]()
+](https://media.giphy.com/media/5rjEsJnmsUF2CxGg5e/giphy.gif)
 * request requests
 * merging the responses from two API requests into one to return to the front
 * dead parameters
+* Validation
+> lowercase flightnos are a no-no
 
 
 ---
 
 ## :bulb: What we learned 
-* So so much
-* 
+* adhoc intro to Promises.
+    * Promises.all() method
+    * Promise.prototype.then() method
+* request module
+* URL module (see [w3schools](https://www.w3schools.com/nodejs/nodejs_url.asp))
+    * urlMod.parse(address, true) method
+    * .query - returns object
+
 ---
 
 ## :clock6: Stretch goals
-* So so much
+* make it pretty
+* modularising dom.js
+* different airports
+* Alert message if user is soon to miss flight
 
 ---
 
