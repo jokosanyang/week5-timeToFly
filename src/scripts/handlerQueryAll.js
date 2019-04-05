@@ -20,7 +20,7 @@ const handlerQueryAll = (request, response, url) => {
     }).catch(error => {
         console.log(error);
         response.writeHead(404, {'content-type': 'text/html'})
-        response.end(error.message);
+        response.end(`<h1> Sorry folks, there has been an error: ${error.message}</h1>`);
     })
 
 }
