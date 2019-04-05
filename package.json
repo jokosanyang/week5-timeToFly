@@ -26,5 +26,8 @@
     "supertest": "^4.0.2",
     "tap-spec": "^5.0.0",
     "tape": "^4.10.1"
+  },
+  "dependencies": {
+    "env2": "^2.2.2"
   }
 }

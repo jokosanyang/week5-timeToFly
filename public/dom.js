@@ -6,7 +6,8 @@ const button = document.querySelector('#submitbtn');
 const callBackEnd = (e) => {
     e.preventDefault();
     const xhr = new XMLHttpRequest();
-    const urlStr = `query?postcode=${inputPostCode.value}&flightno=${inputFlightno.value}`;
+    
+    const urlStr = `query?postcode=${inputPostCode.value}&flightno=${inputFlightno.value.toUpperCase()}`;
 
     xhr.onreadystatechange = () => {
         if (xhr.readyState === 4 && xhr.status === 200){
@@ -37,14 +38,15 @@ const callBackEnd = (e) => {
            //creating a list of directions
            directionsArr.forEach(a => {
                li = document.createElement('LI');
+               legNo = directionsArr.indexOf(a);
+               li.setAttribute(
+                "aria-label", `This is leg ${legNo+1} of your journey`);
                textnode = document.createTextNode(a);
                li.appendChild(textnode);
                orderedList.append(li);
            });
         // appends completed OL to our directions-container
            document.getElementById('directions-container').appendChild(orderedList);
-   
-            
         } else {
             console.error('Something is wrong');
         }
@@ -55,9 +57,3 @@ const callBackEnd = (e) => {
 
 form.addEventListener('submit', callBackEnd);
 
-form.addEventListener('keypress', event => {  
-    let key = event.keyCode;
-    if (key === 32) {
-      event.preventDefault();
-    }
-});
