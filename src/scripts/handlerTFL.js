@@ -5,7 +5,16 @@ const handlerTFL = (req, res, postcode) => {
    
     return responsePromise = new Promise((resolve, reject) => {
         
-        request(`https://api.tfl.gov.uk/journey/journeyresults/${postcode}/to/${heathrow}`, { json : true}, (err, response, body) => {
+        const options = {
+            url: `https://api.tfl.gov.uk/journey/journeyresults/${postcode}/to/${heathrow}`,
+            json: true,
+            headers: {
+                app_id: "960a1776",
+                app_key: "b84522d9deeed1510d0c6e573ee789b4"
+            }
+        }
+
+        request(options, (err, response, body) => {
         if (err) {
             return reject(err); 
         } 

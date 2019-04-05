@@ -16,6 +16,18 @@ const callBackEnd = (e) => {
 
             const directionsArr = response[0].legs;
             
+            const journeyInSecs = response[0].duration * 60;
+            const epoch = response[1];
+            
+            const timeToBeAtAirport = epoch - 600 - 7200;
+            const timeToLeaveUnix = timeToBeAtAirport - journeyInSecs;
+            const realTimeToLeave = new Date(timeToLeaveUnix * 1000);
+            console.log(realTimeToLeave);
+
+            document.getElementById('time-result').innerHTML = 
+            "In order to be at the airport two hours early, you need to leave at: " + "<br>" + realTimeToLeave + "<br><br>"
+            + "Here's how to get there: "; 
+
             //    list of directions in html
             const orderedList = document.getElementById('ordered-directions');
 
@@ -35,18 +47,6 @@ const callBackEnd = (e) => {
            });
         // appends completed OL to our directions-container
            document.getElementById('directions-container').appendChild(orderedList);
-   
-            const journeyInSecs = response[0].duration * 60;
-            const epoch = response[1];
-            
-            const timeToBeAtAirport = epoch - 600 - 7200;
-            const timeToLeaveUnix = timeToBeAtAirport - journeyInSecs;
-            const realTimeToLeave = new Date(timeToLeaveUnix * 1000);
-            console.log(realTimeToLeave);
-
-            document.getElementById('time-result').innerHTML = 
-            "In order to be at the airport two hours early, you need to leave at: " + "<br>" + realTimeToLeave + "<br><br>"
-            + "Here's how to get there: "; 
         } else {
             console.error('Something is wrong');
         }
