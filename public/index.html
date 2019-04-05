@@ -11,18 +11,28 @@
 </head>
 <body>
     <div class = "container">
-        <header>Time to Fly!</header>
+        <header>
+            <h1>Time to Fly!</h1>
+        </header>
             <main>
+                <h2>
+                    What time do I leave for the airport?
+                </h2>
                 <form action="submit" id="form">
-                    <label for="postcode">from</label>
+                    <label for="postcode">From</label>
                     <input type="text" placeholder="enter postcode" id="postcode">
-                    <select>
+                    <label for="airport">To</label>
+                    <select id="airport">
                         <option value="heathrow">Heathrow</option>
                     </select>
-                    <label for="flightno">to</label>
+                    <label for="flightno">Flight</label>
                     <input type="text" placeholder="enter flight number" id="flightno">
                     <button type="submit" id="submitbtn">FLY!</button>
             </form>
+
+            <section class="results__time" id="time-result">
+
+            </section>
             </main>
             <footer>
 
