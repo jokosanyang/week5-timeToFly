@@ -6,7 +6,6 @@ const routeArr = [
     "/css/normalise.css",
     "/css/style.css",
     "/dom.js",
-    "/assets/favicon.ico"
 ];
 
 const router = (request, response) => {
