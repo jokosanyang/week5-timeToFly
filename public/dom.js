@@ -6,7 +6,8 @@ const button = document.querySelector('#submitbtn');
 const callBackEnd = (e) => {
     e.preventDefault();
     const xhr = new XMLHttpRequest();
-    const urlStr = `query?postcode=${inputPostCode.value}&flightno=${inputFlightno.value}`;
+    
+    const urlStr = `query?postcode=${inputPostCode.value}&flightno=${inputFlightno.value.toUpperCase()}`;
 
     xhr.onreadystatechange = () => {
         if (xhr.readyState === 4 && xhr.status === 200){
@@ -42,7 +43,7 @@ const callBackEnd = (e) => {
 
             document.getElementById('time-result').innerHTML = 
             "In order to be at the airport two hours early, you need to leave at: " + "<br>" + realTimeToLeave + "<br><br>"
-            + "Here's how to get there: " + "<br>" + directions; 
+            + "Here's how to get there: "; 
         } else {
             console.error('Something is wrong');
         }
