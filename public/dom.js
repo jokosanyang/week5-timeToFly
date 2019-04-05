@@ -26,6 +26,9 @@ const callBackEnd = (e) => {
            //creating a list of directions
            directionsArr.forEach(a => {
                li = document.createElement('LI');
+               legNo = directionsArr.indexOf(a);
+               li.setAttribute(
+                "aria-label", `This is leg ${legNo+1} of your journey`);
                textnode = document.createTextNode(a);
                li.appendChild(textnode);
                orderedList.append(li);
