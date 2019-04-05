@@ -10,19 +10,20 @@ const callBackEnd = (e) => {
 
     xhr.onreadystatechange = () => {
         if (xhr.readyState === 4 && xhr.status === 200){
+            // console.log(xhr.responseText);
+            const response = JSON.parse(xhr.responseText);
 
-            const responseArr = JSON.parse(xhr.responseText);
-            const directions = responseArr[0].legs;
-
-        //    list of directions in html
-         const orderedList = document.getElementById('ordered-directions');
+            const directionsArr = response[0].legs;
+            
+            //    list of directions in html
+            const orderedList = document.getElementById('ordered-directions');
 
             while(orderedList.getElementsByTagName('li').length > 0){                
                 orderedList.removeChild(orderedList.childNodes[0]);
             };
 
            //creating a list of directions
-           directions.forEach(a => {
+           directionsArr.forEach(a => {
                li = document.createElement('LI');
                textnode = document.createTextNode(a);
                li.appendChild(textnode);
@@ -30,8 +31,19 @@ const callBackEnd = (e) => {
            });
         // appends completed OL to our directions-container
            document.getElementById('directions-container').appendChild(orderedList);
-        } 
-        else {
+   
+            const journeyInSecs = response[0].duration * 60;
+            const epoch = response[1];
+            
+            const timeToBeAtAirport = epoch - 600 - 7200;
+            const timeToLeaveUnix = timeToBeAtAirport - journeyInSecs;
+            const realTimeToLeave = new Date(timeToLeaveUnix * 1000);
+            console.log(realTimeToLeave);
+
+            document.getElementById('time-result').innerHTML = 
+            "In order to be at the airport two hours early, you need to leave at: " + "<br>" + realTimeToLeave + "<br><br>"
+            + "Here's how to get there: " + "<br>" + directions; 
+        } else {
             console.error('Something is wrong');
         }
     }
@@ -40,3 +52,10 @@ const callBackEnd = (e) => {
 }
 
 form.addEventListener('submit', callBackEnd);
+
+form.addEventListener('keypress', event => {  
+    let key = event.keyCode;
+    if (key === 32) {
+      event.preventDefault();
+    }
+});

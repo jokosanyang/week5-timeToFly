@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/scripts/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node src/tests/router.test.js | tap-spec",
     "start": "node src/scripts/server.js",
     "go": "nodemon src/scripts/server.js"
   },
