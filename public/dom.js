@@ -21,3 +21,10 @@ const callBackEnd = (e) => {
 }
 
 form.addEventListener('submit', callBackEnd);
+
+form.addEventListener('keypress', event => {  
+    let key = event.keyCode;
+    if (key === 32) {
+      event.preventDefault();
+    }
+});
