@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/FAC-Sixteen/week5-timeToFly#readme",
   "dependencies": {
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "env2": "^2.2.2"
   },
   "devDependencies": {
     "nodemon": "^1.18.10",
