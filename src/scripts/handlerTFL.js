@@ -1,5 +1,6 @@
 const request = require('request');
 const heathrow = 'TW62GA';
+require('env2')('config.env');
 
 const handlerTFL = (req, res, postcode) => {
    
@@ -9,8 +10,8 @@ const handlerTFL = (req, res, postcode) => {
             url: `https://api.tfl.gov.uk/journey/journeyresults/${postcode}/to/${heathrow}`,
             json: true,
             headers: {
-                app_id: "960a1776",
-                app_key: "b84522d9deeed1510d0c6e573ee789b4"
+                app_id: process.env.TFL_ID,
+                app_key: process.env.TFL_PASS
             }
         }
 
