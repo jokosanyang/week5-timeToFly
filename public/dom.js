@@ -21,11 +21,13 @@ const callBackEnd = (e) => {
             
             const timeToBeAtAirport = epoch - 600 - 7200;
             const timeToLeaveUnix = timeToBeAtAirport - journeyInSecs;
-            const realTimeToLeave = new Date(timeToLeaveUnix * 1000);
-            console.log(realTimeToLeave);
+            const fullTimeToLeave = new Date(timeToLeaveUnix * 1000);
+            const dateToLeave = fullTimeToLeave.toDateString();
+            const exactTimeToLeave = fullTimeToLeave.toLocaleTimeString();
+            console.log(exactTimeToLeave);
 
             document.getElementById('time-result').innerHTML = 
-            "In order to be at the airport two hours early, you need to leave at: " + "<br>" + realTimeToLeave + "<br><br>"
+            "In order to be at the airport two hours early, you need to leave at: " + "<br>" + exactTimeToLeave + " on " + dateToLeave + "<br><br>"
             + "Here's how to get there: "; 
 
             //    list of directions in html
