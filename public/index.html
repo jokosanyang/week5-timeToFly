@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html> -->
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,11 +10,11 @@
     <title>Time to Fly!</title>
 </head>
 <body>
-    <div class = "container">
-        <header>
-            <h1>Time to Fly!</h1>
+    <div class="page-container">
+        <header class="page-header">
+            <h1 class="page-header__heading">Time to Fly!</h1>
         </header>
-            <main>
+            <main class="page-main">
                 <h2>
                     What time do I leave for the airport?
                 </h2>
@@ -28,18 +28,19 @@
                     <label for="flightno">Flight</label>
                     <input type="text" placeholder="enter flight number" id="flightno">
                     <button type="submit" id="submitbtn">FLY!</button>
-            </form>              
+            </form>
+            <br>              
             <section class="results__time" id="time-result">
               
             </section>                     
-            <section id="directions-container">
+            <section class="results__directions" id="directions-container">
                 <ol id="ordered-directions">
 
                 </ol>
 
             </section>
             </main>
-            <footer>
+            <footer class="page-footer">
 
             </footer>
     </div>
