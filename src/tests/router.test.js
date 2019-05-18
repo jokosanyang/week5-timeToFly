@@ -19,4 +19,17 @@ test('/ returns StatusCode of 200', (t)=>{
       t.end();
     });
 
+});
+
+test('Incorrect route returns statusCode of 404', (t) => {
+  supertest(router)
+    .get('/random-route')
+    .expect(404)
+    .expect('Content-Type', /html/)
+    .end((err) => {
+      t.error(err, 'Error should be null');
+      t.end();
+    })
 })
+
+

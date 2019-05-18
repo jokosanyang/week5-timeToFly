@@ -40,7 +40,22 @@ const handlerPublic = (request, response, url) => {
     });
 }
 
+const handlerError = (request, response) => {
+    const filePath = path.join(__dirname, '../..', 'public', '404.html');
+
+    fs.readFile(filePath, (error, file) => {
+        if (error) {
+            response.writeHead(500, {'Content-Type': 'text/html'});
+            response.end('<h1>Oops, looks like there is a problem on our end.</h1>');
+        } else {
+            response.writeHead(404, {'Content-Type': 'text/html'});
+            response.end(file);
+        }
+    })
+}
+
 module.exports = {
     handlerHome,
-    handlerPublic    
+    handlerPublic,
+    handlerError    
 }

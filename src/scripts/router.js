@@ -21,8 +21,7 @@ const router = (request, response) => {
         handlerQueryAll(request, response, url);
 
     } else{
-        response.writeHead(404, {'Content-Type': 'text/html'});
-        response.end('<h1>404. Sorry Buddy.</h1>');
+        handler.handlerError(request, response);
     }
 } 
 
