@@ -24,7 +24,6 @@ const callBackEnd = (e) => {
             const fullTimeToLeave = new Date(timeToLeaveUnix * 1000);
             const dateToLeave = fullTimeToLeave.toDateString();
             const exactTimeToLeave = fullTimeToLeave.toLocaleTimeString();
-            console.log(exactTimeToLeave);
 
             document.getElementById('time-result').innerHTML = 
             "In order to be at the airport two hours early, you need to leave at: " + "<br>" + exactTimeToLeave + " on " + dateToLeave + "<br><br>"
