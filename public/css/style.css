@@ -18,13 +18,13 @@
     flex-wrap: wrap;
 }
 
-.postcode__input, .flight__input {
+.form__input--section {
     position: relative;
     height: 3rem;
     overflow: hidden;
 }
 
-.postcode__input input, .flight__input input {
+.form__input--section input {
     width: 100%;
     height: 100%;
     color: #008cba;
@@ -34,14 +34,14 @@
 
 }
 
-.postcode__input input:focus + .form__label .form__label--text, .flight__input input:focus + .form__label .form__label--text, 
-.postcode__input input:valid + .form__label .form__label--text, .flight__input input:valid + .form__label .form__label--text {
+.form__input--section input:focus + .form__label .form__label--text,  
+.form__input--section input:valid + .form__label .form__label--text {
     transform: translateY(-150%);
     font-size: 14px;
     color: #008cba;
 }
 
-.postcode__input label, .flight__input label {
+.form__input--section label {
     position: absolute;
     bottom: 0px;
     left: 0px;
@@ -52,7 +52,7 @@
     
 }
 
-.postcode__input label::after, .flight__input label::after {
+.form__input--section label::after {
     content: "";
     position: absolute;
     height: 100%;
@@ -71,8 +71,8 @@
     transition: all 0.3s ease;
 }
 
-.postcode__input input:focus + .form__label::after, .flight__input input:focus + .form__label::after,
-.postcode__input input:valid + .form__label::after, .flight__input input:valid + .form__label::after {
+.form__input--section input:focus + .form__label::after, 
+.form__input--section input:valid + .form__label::after {
     transform: translateX(0);
 }
 
