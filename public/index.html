@@ -15,19 +15,29 @@
             <h1 class="page-header__heading">Time to Fly!</h1>
         </header>
             <main class="page-main">
-                <h2>
+                <h2 class="page-main__heading">
                     What time do I leave for the airport?
                 </h2>
-                <form action="submit" id="form">
-                    <label for="postcode">From</label>
-                    <input type="text" placeholder="enter postcode" id="postcode">
+                <form class="form" action="submit" id="form">
+                    <div class="postcode__input">
+                    <input type="text" required autocomplete="off" id="postcode">
+                    <label class="form__label" for="postcode">
+                            <span class="form__label--text">Home postcode</span>
+                        </label>
+                </div>
+                    <div class="airport__input">
                     <label for="airport">To</label>
                     <select id="airport">
-                        <option value="heathrow">Heathrow</option>
-                    </select>
-                    <label for="flightno">Flight</label>
-                    <input type="text" placeholder="enter flight number" id="flightno">
-                    <button type="submit" id="submitbtn">FLY!</button>
+                            <option value="heathrow">Heathrow</option>
+                        </select>
+                </div>
+                    <div class="flight__input">
+                    <input type="text" required autocomplete="off" id="flightno">
+                    <label class="form__label" for="flightno">
+                            <span class="form__label--text">Flight number</span>
+                        </label>
+                </div>
+                    <button class="form__button" type="submit" id="submitbtn">FLY!</button>
             </form>
             <br>              
             <section class="results__time" id="time-result">
